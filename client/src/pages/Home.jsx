@@ -64,7 +64,7 @@ export default function Home({ navigate }) {
         <div className="flex-1 flex flex-col items-start gap-6 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-bg border border-gray-100 rounded-full text-brand-green font-display font-semibold text-xs uppercase tracking-wider">
             <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
-            V2.0 React Edition
+            Active Community Pack
           </div>
           <h1 className="font-display font-extrabold text-5xl md:text-6xl text-brand-dark leading-tight tracking-tight">
             The Hub for <br className="hidden md:inline" />

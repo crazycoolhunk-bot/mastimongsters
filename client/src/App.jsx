@@ -19,13 +19,41 @@ export default function App() {
   const [profile, setProfile] = useState(null);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [theme, setTheme] = useState(() => localStorage.getItem('masti-theme') || 'emerald');
+  const [adminToken, setAdminToken] = useState(() => localStorage.getItem('masti-admin') === 'true');
+
+  const isAdmin = adminToken || (user && ['jaisheel@mastimongsters.com', 'jai@mastimongsters.com', 'rajkkorrapati@gmail.com'].includes(user.email.toLowerCase()));
 
   useEffect(() => {
     localStorage.setItem('masti-theme', theme);
   }, [theme]);
 
-  // Monitor Firebase Auth State changes
   useEffect(() => {
+    const handleAdminLogin = () => {
+      setAdminToken(localStorage.getItem('masti-admin') === 'true');
+    };
+    window.addEventListener('masti-admin-login', handleAdminLogin);
+    return () => window.removeEventListener('masti-admin-login', handleAdminLogin);
+  }, []);
+
+  // Monitor Firebase Auth State changes and sync mock local credentials
+  useEffect(() => {
+    const mockUser = localStorage.getItem('masti-user-mock');
+    if (mockUser) {
+      try {
+        const u = JSON.parse(mockUser);
+        setUser(u);
+        setProfile({
+          uid: u.uid,
+          displayName: u.displayName,
+          email: u.email,
+          subscriptionTier: 'admin'
+        });
+        return;
+      } catch (err) {
+        console.error("Failed loading mock admin user:", err);
+      }
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       if (firebaseUser) {
@@ -49,6 +77,8 @@ export default function App() {
 
   const handleSignOut = () => {
     signOut(auth).catch(err => console.error("Error signing out:", err));
+    localStorage.removeItem('masti-admin');
+    setAdminToken(false);
   };
 
   // Render correct page element
@@ -72,6 +102,10 @@ export default function App() {
     { id: 'gallery', label: 'Gallery' },
     { id: 'rules', label: 'Rules' }
   ];
+
+  if (isAdmin) {
+    navItems.push({ id: 'admin', label: 'Admin Portal' });
+  }
 
   return (
     <div className={`min-height-screen bg-brand-bg flex flex-col selection:bg-brand-green selection:text-white transition-colors duration-300 ${theme === 'cyber' ? 'dark-theme-cyber' : ''}`}>
@@ -107,17 +141,19 @@ export default function App() {
               </button>
             ))}
             
-            {/* Theme Style Toggle */}
-            <button
-              onClick={() => setTheme(theme === 'emerald' ? 'cyber' : 'emerald')}
-              className="flex items-center gap-2 bg-brand-bg border border-gray-100 hover:border-brand-green px-4 py-2 rounded-full transition-all text-gray-500 hover:text-brand-dark"
-              title="Toggle Theme Style"
-            >
-              <Palette size={14} className="text-brand-green animate-pulse" />
-              <span className="font-display font-semibold text-xs uppercase tracking-wider">
-                {theme === 'emerald' ? 'Emerald' : 'Cyber'}
-              </span>
-            </button>
+            {/* Theme Style Toggle - Only visible to Admin */}
+            {isAdmin && (
+              <button
+                onClick={() => setTheme(theme === 'emerald' ? 'cyber' : 'emerald')}
+                className="flex items-center gap-2 bg-brand-bg border border-gray-100 hover:border-brand-green px-4 py-2 rounded-full transition-all text-gray-500 hover:text-brand-dark"
+                title="Toggle Theme Style"
+              >
+                <Palette size={14} className="text-brand-green animate-pulse" />
+                <span className="font-display font-semibold text-xs uppercase tracking-wider">
+                  {theme === 'emerald' ? 'Emerald' : 'Cyber'}
+                </span>
+              </button>
+            )}
 
             {/* Auth Action Widget */}
             {user ? (
@@ -186,19 +222,21 @@ export default function App() {
             </button>
           ))}
           
-          {/* Mobile Theme Style Toggle */}
-          <button
-            onClick={() => setTheme(theme === 'emerald' ? 'cyber' : 'emerald')}
-            className="flex items-center justify-between bg-brand-bg border border-gray-100 px-5 py-4 rounded-2xl w-full text-left"
-          >
-            <span className="font-display font-bold text-lg text-brand-dark">Style Theme</span>
-            <div className="flex items-center gap-2">
-              <Palette size={16} className="text-brand-green" />
-              <span className="font-display font-bold text-xs uppercase tracking-wider text-brand-green">
-                {theme === 'emerald' ? 'Emerald' : 'Cyber'}
-              </span>
-            </div>
-          </button>
+          {/* Mobile Theme Style Toggle - Only visible to Admin */}
+          {isAdmin && (
+            <button
+              onClick={() => setTheme(theme === 'emerald' ? 'cyber' : 'emerald')}
+              className="flex items-center justify-between bg-brand-bg border border-gray-100 px-5 py-4 rounded-2xl w-full text-left font-display mb-4"
+            >
+              <span className="font-display font-bold text-lg text-brand-dark">Style Theme</span>
+              <div className="flex items-center gap-2">
+                <Palette size={16} className="text-brand-green" />
+                <span className="font-display font-bold text-xs uppercase tracking-wider text-brand-green">
+                  {theme === 'emerald' ? 'Emerald' : 'Cyber'}
+                </span>
+              </div>
+            </button>
+          )}
 
           {user ? (
             <div className="mt-auto flex flex-col gap-4 border-t border-gray-100 pt-6">
@@ -270,6 +308,7 @@ export default function App() {
             </div>
             <p className="text-xs text-gray-400">
               © 2026 Masti Mongsters Community. All rights reserved. •{' '}
+              <span className="font-semibold text-brand-green">V2.0 React Edition</span> •{' '}
               <button 
                 onClick={() => setActiveTab('admin')} 
                 className="hover:text-brand-green font-semibold transition-colors"

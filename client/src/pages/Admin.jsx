@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Lock, Unlock, Database, CreditCard, Users, Trash2, MessageCircle, AlertCircle, RefreshCw } from 'lucide-react';
 
 export default function Admin() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => localStorage.getItem('masti-admin') === 'true');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [requests, setRequests] = useState([]);
@@ -20,12 +20,19 @@ export default function Admin() {
   const cloudRunCost = 0.00;
   const totalCost = firestoreReadCost + storageCost + cloudRunCost;
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchRequests();
+    }
+  }, [isAuthenticated]);
+
   const handleLogin = (e) => {
     e.preventDefault();
     if (password === 'mongsters2026') {
+      localStorage.setItem('masti-admin', 'true');
+      window.dispatchEvent(new Event('masti-admin-login'));
       setIsAuthenticated(true);
       setError('');
-      fetchRequests();
     } else {
       setError('Invalid admin access code. Try again!');
     }

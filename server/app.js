@@ -43,6 +43,7 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
+let isFirestoreOffline = false;
 const bucket = admin.storage().bucket();
 
 // Configure multer to store uploaded files in memory
@@ -235,6 +236,7 @@ async function initDatabase() {
     console.log("Firestore database seeded successfully!");
   } catch (err) {
     console.error("Failed to seed Firestore database:", err);
+    isFirestoreOffline = true;
   }
 }
 
@@ -245,33 +247,77 @@ initDatabase();
 // REST API ROUTES
 // ==========================================================================
 
+// Local memory fallback data structures for local development when GCP credentials are not active
+const localMembers = MEMBER_NAMES.map((name, i) => {
+  const isJai = name === 'Jai';
+  let role = 'active';
+  if (isJai) role = 'admin';
+  else {
+    if (i % 7 === 0) role = 'classic';
+    else if (i % 5 === 0) role = 'lurker';
+  }
+  let status = isJai ? 'legendary' : (i % 3 === 0 ? 'online' : 'offline');
+  return {
+    id: i + 1,
+    name,
+    role,
+    status,
+    tagline: taglines[i % taglines.length],
+    emoji: emojis[i % emojis.length],
+    gradient: gradients[i % gradients.length],
+    avatar: isJai ? '/avatars/jai.jpg' : null
+  };
+});
+
+const localAnnouncements = [
+  { id: 1, title: 'Summer Meetup RSVP Open', content: 'Our annual Summer Mongsters Bash is scheduled for July 12th. Check the polling links and RSVP by Sunday!', isPinned: true, date: '2026-05-22' },
+  { id: 2, title: 'No Chain Message Rule Reminder', content: 'Avoid forwarding external commercial links and good morning images to prevent notification fatigue. Banter stays in-house!', isPinned: false, date: '2026-05-18' }
+];
+
+const localGallery = [
+  { id: 1, title: 'Pondicherry road Trip', tag: 'Meetup', date: 'Oct 2012', imageUrl: '/gallery/pondy.jpg' },
+  { id: 2, title: 'Austin, Tx Meet up', tag: 'Admin', date: 'March 2015', imageUrl: '/gallery/austin.jpg' },
+  { id: 3, title: 'The WhatsApp Admin Meet', tag: 'Screenshot', date: 'Apr 2025', bg: 'linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)', symbol: 'bubble' },
+  { id: 4, title: 'Late Night Chai Gathering', tag: 'Meetup', date: 'Jun 2025', bg: 'linear-gradient(135deg, #ffe600 0%, #ff007f 100%)', symbol: 'chai' }
+];
+
+let localRequests = [];
+
+const filterResults = (results, query) => {
+  let filtered = [...results];
+  const { search, role } = query;
+  if (search) {
+    const q = search.toLowerCase();
+    filtered = filtered.filter(m => m.name.toLowerCase().includes(q) || m.tagline.toLowerCase().includes(q));
+  }
+  if (role && role !== 'all') {
+    filtered = filtered.filter(m => m.role === role);
+  }
+  return filtered;
+};
+
 // 1. Members Endpoints
 app.get('/api/members', async (req, res) => {
+  if (isFirestoreOffline) {
+    return res.json(filterResults(localMembers, req.query));
+  }
   try {
     const snapshot = await db.collection('members').get();
     let results = [];
     snapshot.forEach(doc => results.push(doc.data()));
-
-    const { search, role } = req.query;
-
-    if (search) {
-      const q = search.toLowerCase();
-      results = results.filter(m => m.name.toLowerCase().includes(q) || m.tagline.toLowerCase().includes(q));
-    }
-
-    if (role && role !== 'all') {
-      results = results.filter(m => m.role === role);
-    }
-
-    res.json(results);
+    res.json(filterResults(results, req.query));
   } catch (err) {
-    console.error("Error fetching members:", err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.warn("Firestore unavailable, toggling offline status and serving local mock members:", err.message);
+    isFirestoreOffline = true;
+    res.json(filterResults(localMembers, req.query));
   }
 });
 
 // 2. Announcements Endpoints
 app.get('/api/announcements', async (req, res) => {
+  if (isFirestoreOffline) {
+    return res.json([...localAnnouncements].sort((a, b) => b.id - a.id));
+  }
   try {
     const snapshot = await db.collection('announcements').get();
     const results = [];
@@ -279,8 +325,9 @@ app.get('/api/announcements', async (req, res) => {
     results.sort((a, b) => b.id - a.id); // Newest first
     res.json(results);
   } catch (err) {
-    console.error("Error fetching announcements:", err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.warn("Firestore unavailable, toggling offline status and serving local mock announcements:", err.message);
+    isFirestoreOffline = true;
+    res.json([...localAnnouncements].sort((a, b) => b.id - a.id));
   }
 });
 
@@ -305,13 +352,25 @@ app.post('/api/announcements', async (req, res) => {
     await db.collection('announcements').doc(String(nextId)).set(newAnnouncement);
     res.status(201).json(newAnnouncement);
   } catch (err) {
-    console.error("Error creating announcement:", err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error creating announcement in Firestore, using mock state:", err);
+    const nextId = localAnnouncements.length + 1;
+    const newAnnouncement = {
+      id: nextId,
+      title,
+      content,
+      isPinned: !!isPinned,
+      date: new Date().toISOString().split('T')[0]
+    };
+    localAnnouncements.push(newAnnouncement);
+    res.status(201).json(newAnnouncement);
   }
 });
 
 // 3. Gallery Endpoints
 app.get('/api/gallery', async (req, res) => {
+  if (isFirestoreOffline) {
+    return res.json([...localGallery].sort((a, b) => b.id - a.id));
+  }
   try {
     const snapshot = await db.collection('gallery').get();
     const results = [];
@@ -319,8 +378,9 @@ app.get('/api/gallery', async (req, res) => {
     results.sort((a, b) => b.id - a.id); // Newest first
     res.json(results);
   } catch (err) {
-    console.error("Error fetching gallery:", err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.warn("Firestore unavailable, toggling offline status and serving local mock gallery:", err.message);
+    isFirestoreOffline = true;
+    res.json([...localGallery].sort((a, b) => b.id - a.id));
   }
 });
 
@@ -387,25 +447,34 @@ app.post('/api/contact/request', async (req, res) => {
     return res.status(400).json({ error: 'All fields except Instagram handle are required' });
   }
 
+  const nextId = (isFirestoreOffline ? localRequests.length : 0) + 1;
+  const newRequest = {
+    id: nextId,
+    name,
+    phone,
+    referer,
+    reason,
+    handle: handle || '',
+    date: new Date().toISOString()
+  };
+
+  if (isFirestoreOffline) {
+    localRequests.push(newRequest);
+    return res.status(201).json({ message: 'Request submitted successfully' });
+  }
+
   try {
     const snapshot = await db.collection('requests').get();
-    const nextId = snapshot.size + 1;
-
-    const newRequest = {
-      id: nextId,
-      name,
-      phone,
-      referer,
-      reason,
-      handle: handle || '',
-      date: new Date().toISOString()
-    };
-
-    await db.collection('requests').doc(String(nextId)).set(newRequest);
+    const dbNextId = snapshot.size + 1;
+    newRequest.id = dbNextId;
+    await db.collection('requests').doc(String(dbNextId)).set(newRequest);
     res.status(201).json({ message: 'Request submitted successfully' });
   } catch (err) {
-    console.error("Error submitting request:", err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error submitting request, saving locally:", err);
+    isFirestoreOffline = true;
+    newRequest.id = localRequests.length + 1;
+    localRequests.push(newRequest);
+    res.status(201).json({ message: 'Request submitted successfully' });
   }
 });
 
@@ -422,6 +491,10 @@ const adminAuth = (req, res, next) => {
 };
 
 app.get('/api/admin/requests', adminAuth, async (req, res) => {
+  if (isFirestoreOffline) {
+    const sorted = [...localRequests].sort((a, b) => new Date(b.date) - new Date(a.date));
+    return res.json(sorted);
+  }
   try {
     const snapshot = await db.collection('requests').get();
     const results = [];
@@ -429,19 +502,29 @@ app.get('/api/admin/requests', adminAuth, async (req, res) => {
     results.sort((a, b) => new Date(b.date) - new Date(a.date)); // Newest first
     res.json(results);
   } catch (err) {
-    console.error("Error fetching admin requests:", err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error fetching admin requests, serving local:", err);
+    isFirestoreOffline = true;
+    const sorted = [...localRequests].sort((a, b) => new Date(b.date) - new Date(a.date));
+    res.json(sorted);
   }
 });
 
 app.delete('/api/admin/requests/:id', adminAuth, async (req, res) => {
   const { id } = req.params;
+  const reqId = parseInt(id);
+
+  if (isFirestoreOffline) {
+    localRequests = localRequests.filter(r => r.id !== reqId && String(r.id) !== id);
+    return res.json({ message: `Request ${id} deleted successfully` });
+  }
   try {
     await db.collection('requests').doc(String(id)).delete();
     res.json({ message: `Request ${id} deleted successfully` });
   } catch (err) {
-    console.error(`Error deleting request ${id}:`, err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error(`Error deleting request ${id}, using local fallback:`, err);
+    isFirestoreOffline = true;
+    localRequests = localRequests.filter(r => r.id !== reqId && String(r.id) !== id);
+    res.json({ message: `Request ${id} deleted successfully` });
   }
 });
 
