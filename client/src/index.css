@@ -14,33 +14,32 @@
   --brand-yellow: #F59E0B;
 }
 
-/* 2. Cyber-Banter Midnight (Dark Theme) */
+/* 2. Cyber-Banter Rave (Playful Dark Theme) */
 .dark-theme-cyber {
-  --brand-white: #121824; /* Dark Slate Surface */
-  --brand-bg: #0B0F19;    /* Midnight Void Black */
-  --brand-surface: #1E293B; /* Medium Slate */
-  --brand-dark: #F8FAFC;    /* High-contrast text */
-  --brand-green: #00F2FE;   /* Neon Cyan */
-  --brand-pink: #FF007F;    /* Hot Magenta */
-  --brand-blue: #38BDF8;    /* Electric Sky Blue */
-  --brand-yellow: #FDE047;  /* Bright Neon Yellow */
+  --brand-white: #18152D; /* Frosted Purple Card Surface */
+  --brand-bg: #090715;    /* Deep Space Banter Purple */
+  --brand-surface: #2E2752; /* Vivid Purple */
+  --brand-dark: #F5EFFF;    /* Soft Lavender Text */
+  --brand-green: #39FF14;   /* Neon Lime Green (Active Accent) */
+  --brand-pink: #FF007F;    /* Hot Magenta (Join/Highlight) */
+  --brand-blue: #00E5FF;    /* Neon Cyan (Electric Blue) */
+  --brand-yellow: #FFE600;  /* Bright Sun Yellow */
 }
 
-/* Custom base adjustments */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
+/* Base adjustments when dark theme is active */
+.dark-theme-cyber body {
   background-color: var(--brand-bg);
   color: var(--brand-dark);
-  font-family: 'Space Grotesk', sans-serif;
-  overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Dynamic theme overrides */
+/* Dynamic theme overrides to force light components to dark-neon counterparts */
 .dark-theme-cyber .bg-white {
   background-color: var(--brand-white) !important;
+}
+
+.dark-theme-cyber header {
+  background-color: rgba(24, 21, 45, 0.85) !important;
+  border-color: rgba(46, 39, 82, 0.5) !important;
 }
 
 .dark-theme-cyber .text-brand-dark {
@@ -51,24 +50,33 @@ html, body {
   background-color: var(--brand-bg) !important;
 }
 
-.dark-theme-cyber .border-gray-100 {
-  border-color: #1E293B !important;
+.dark-theme-cyber .border-gray-100,
+.dark-theme-cyber .border-gray-200 {
+  border-color: rgba(46, 39, 82, 0.6) !important;
+}
+
+/* Fix overlapping/unreadable dark text inside cards */
+.dark-theme-cyber .text-gray-900,
+.dark-theme-cyber .text-gray-800,
+.dark-theme-cyber .text-gray-700,
+.dark-theme-cyber .text-gray-600 {
+  color: var(--brand-dark) !important;
 }
 
 .dark-theme-cyber .text-gray-500 {
-  color: #94A3B8 !important;
+  color: #B2A9DF !important; /* Soft Pastel Purple-Gray */
 }
 
 .dark-theme-cyber .text-gray-400 {
-  color: #64748B !important;
+  color: #8C82BB !important; /* Medium Pastel Purple-Gray */
 }
 
 .dark-theme-cyber .bg-gray-50 {
-  background-color: #1E293B !important;
+  background-color: rgba(46, 39, 82, 0.4) !important;
 }
 
 .dark-theme-cyber .shadow-soft {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 0 15px rgba(57, 255, 20, 0.05) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
