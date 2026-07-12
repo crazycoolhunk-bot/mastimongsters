@@ -5,6 +5,7 @@ import Members from './pages/Members.jsx';
 import Gallery from './pages/Gallery.jsx';
 import Rules from './pages/Rules.jsx';
 import Contact from './pages/Contact.jsx';
+import Admin from './pages/Admin.jsx';
 import { Menu, X, MessageSquare, ShieldAlert, LogOut } from 'lucide-react';
 import { auth, db } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -54,6 +55,7 @@ export default function App() {
       case 'gallery': return <Gallery />;
       case 'rules': return <Rules />;
       case 'contact': return <Contact />;
+      case 'admin': return <Admin />;
       default: return <Home navigate={setActiveTab} />;
     }
   };
@@ -235,7 +237,15 @@ export default function App() {
                 Masti <span className="text-brand-green">Mongsters</span>
               </span>
             </div>
-            <p className="text-xs text-gray-400">© 2026 Masti Mongsters Community. All rights reserved.</p>
+            <p className="text-xs text-gray-400">
+              © 2026 Masti Mongsters Community. All rights reserved. •{' '}
+              <button 
+                onClick={() => setActiveTab('admin')} 
+                className="hover:text-brand-green font-semibold transition-colors"
+              >
+                Admin Portal
+              </button>
+            </p>
           </div>
           <div className="flex gap-6 text-sm font-semibold font-display text-gray-400">
             <a href="#" className="hover:text-brand-green transition-colors">WhatsApp</a>

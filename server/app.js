@@ -409,6 +409,42 @@ app.post('/api/contact/request', async (req, res) => {
   }
 });
 
+// 5. Admin Endpoints
+const ADMIN_PASSWORD = 'mongsters2026';
+
+// Middleware to check admin password
+const adminAuth = (req, res, next) => {
+  const password = req.headers['x-admin-password'];
+  if (password !== ADMIN_PASSWORD) {
+    return res.status(401).json({ error: 'Unauthorized. Invalid admin password.' });
+  }
+  next();
+};
+
+app.get('/api/admin/requests', adminAuth, async (req, res) => {
+  try {
+    const snapshot = await db.collection('requests').get();
+    const results = [];
+    snapshot.forEach(doc => results.push(doc.data()));
+    results.sort((a, b) => new Date(b.date) - new Date(a.date)); // Newest first
+    res.json(results);
+  } catch (err) {
+    console.error("Error fetching admin requests:", err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.delete('/api/admin/requests/:id', adminAuth, async (req, res) => {
+  const { id } = req.params;
+  try {
+    await db.collection('requests').doc(String(id)).delete();
+    res.json({ message: `Request ${id} deleted successfully` });
+  } catch (err) {
+    console.error(`Error deleting request ${id}:`, err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 // Serve static client assets in production
 const distPath = path.join(__dirname, '../client/dist');
 if (fs.existsSync(distPath)) {
