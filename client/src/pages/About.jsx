@@ -2,15 +2,22 @@ import React from 'react';
 import { Mail, MessageCircle, Shield } from 'lucide-react';
 
 export default function About() {
-  const admins = [
+  const team = [
     {
-      name: "Jai",
-      role: "Tech Lead / Admin",
-      quote: "Injecting high-performance weightless physics into our community directory.",
-      emoji: "🧙‍♂️",
-      avatar: "/avatars/jai.jpg",
-      color: "border-brand-blue text-brand-blue bg-brand-blue/5",
-      email: "jai@mastimongsters.com"
+      name: "Jaisheel",
+      role: "Idea Owner & Admin",
+      quote: "Creating a sanctuary for unfiltered daily banter, chaotic memes, and spontaneous road trips.",
+      emoji: "👑",
+      avatar: "",
+      email: "jaisheel@mastimongsters.com"
+    },
+    {
+      name: "Rajesh",
+      role: "Architect",
+      quote: "Designing and engineering the unified serverless architecture and automated CI/CD pipelines.",
+      emoji: "🛠️",
+      avatar: "",
+      email: "rajesh@mastimongsters.com"
     }
   ];
 
@@ -51,11 +58,11 @@ export default function About() {
       {/* Admin Grid Directory */}
       <section>
         <h3 className="font-display font-extrabold text-3xl text-brand-dark text-center mb-12">
-          Meet the <span className="text-brand-green">Administration</span>
+          Meet the <span className="text-brand-green">Team & Administration</span>
         </h3>
         
-        <div className="flex justify-center">
-          {admins.map((admin, idx) => (
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+          {team.map((member, idx) => (
             <div 
               key={idx}
               className="bg-white border border-gray-100 rounded-2xl p-6 shadow-soft flex flex-col items-center text-center relative overflow-hidden hover:border-gray-200 transition-colors max-w-sm w-full"
@@ -65,31 +72,31 @@ export default function About() {
                 <span className="absolute -top-1 -right-1 p-1 bg-white border border-gray-100 rounded-full text-brand-green z-10">
                   <Shield size={12} fill="currentColor" />
                 </span>
-                {admin.avatar ? (
-                  <img src={admin.avatar} alt={admin.name} className="w-full h-full object-cover" />
+                {member.avatar ? (
+                  <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
                 ) : (
-                  <span className="text-4xl">{admin.emoji}</span>
+                  <span className="text-4xl">{member.emoji}</span>
                 )}
               </div>
 
-              <h4 className="font-display font-bold text-lg text-brand-dark">{admin.name}</h4>
-              <div className="font-display text-xs text-gray-400 font-bold uppercase tracking-wider mb-4">{admin.role}</div>
+              <h4 className="font-display font-bold text-lg text-brand-dark">{member.name}</h4>
+              <div className="font-display text-xs text-gray-400 font-bold uppercase tracking-wider mb-4">{member.role}</div>
               
               <p className="text-gray-500 font-body text-xs leading-relaxed italic mb-6">
-                "{admin.quote}"
+                "{member.quote}"
               </p>
 
               {/* Communication Handshake Triggers */}
               <div className="flex gap-3 mt-auto w-full justify-center">
                 <a 
-                  href={`mailto:${admin.email}`}
+                  href={`mailto:${member.email}`}
                   className="p-2 rounded-full border border-gray-100 hover:border-brand-green hover:text-brand-green transition-colors text-gray-400"
                   title="Send Email"
                 >
                   <Mail size={16} />
                 </a>
                 <button 
-                  onClick={() => alert(`Starting handshake chat with Admin ${admin.name}. WhatsApp route active.`)}
+                  onClick={() => alert(`Starting handshake chat with Admin ${member.name}. WhatsApp route active.`)}
                   className="p-2 rounded-full border border-gray-100 hover:border-brand-blue hover:text-brand-blue transition-colors text-gray-400"
                   title="WhatsApp Chat"
                 >
