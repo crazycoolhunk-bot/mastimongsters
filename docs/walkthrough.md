@@ -36,4 +36,18 @@ We verified this flow end-to-end using Puppeteer headlessly:
 3.  Validated the password lock screen.
 4.  Entered password `mongsters2026` to unlock the dashboard.
 5.  Verified the GCP cost calculator and request tables.
-6.  All assertions passed cleanly!
+---
+
+## 🎨 5. Theme Variation (Style Toggle)
+We have added a gorgeous style theme toggler allowing users to shift the color scheme dynamically between:
+1.  **Emerald Forest (Default Light)**: Settled rich green accents with soft shadows on a clean white backdrop.
+    *   `theme_emerald.png` is saved in the local brain directory.
+2.  **Cyber-Banter Midnight (Dark)**: Sleek Void Black (`#0B0F19`) background with high-contrast neon cyan, hot magenta, and electric blue gradients.
+    *   `theme_cyber.png` is saved in the local brain directory.
+
+### E2E Verification Results:
+We executed a custom test script `scratch/test_theme.js` using Puppeteer:
+*   Loaded `http://127.0.0.1:8001` and verified initial theme resolved to default (`isInitialDark: false`).
+*   Found and clicked the **Theme Toggle** button in the navbar.
+*   Verified that the root class updated to `.dark-theme-cyber` successfully.
+*   Saved before-and-after screenshots to the artifacts folder!
