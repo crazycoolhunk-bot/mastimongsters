@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read the official Masti Mongsters group rules and community guidelines. Discover the two pillars of our pack.">
+  <title>Group Rules - Masti Mongsters</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation injected by main.js -->
+  <header></header>
+
+  <main>
+    <h1 class="page-title">Community <span class="text-glow-yellow">Guidelines</span></h1>
+    <p class="page-subtitle">Every pack has its rules to keep the vibes active. These are the core rules that govern our 75+ members.</p>
+
+    <div class="rules-container">
+      
+      <!-- Core Pillars -->
+      <div class="rules-pillars">
+        
+        <div class="pillar-card p-respect" id="pillar-respect">
+          <div class="pillar-icon">🤝</div>
+          <h3 class="text-glow-blue">Respect the Pack</h3>
+          <p>Treat every member like family. No personal attacks, sensitive disclosures, or offensive speech. Disagreements are handled offline, keeping the main space harmonious.</p>
+        </div>
+
+        <div class="pillar-card p-masti" id="pillar-masti">
+          <div class="pillar-icon">⚡</div>
+          <h3 class="text-glow-pink">Keep the Masti Alive</h3>
+          <p>Active participation keeps our heartbeat alive. Post funny stickers, start banter, coordinate weekend hangouts, and check in on each other. A silent group is a dead group.</p>
+        </div>
+
+      </div>
+
+      <!-- Guidelines Row List -->
+      <div class="rules-list">
+
+        <div class="rule-row" id="rule-1">
+          <div class="rule-number">01</div>
+          <div class="rule-details">
+            <h4>No Generic Forward Spam</h4>
+            <p>Avoid sending bulk forwarded messages, circulars, good morning cards, or external commercial ads. Keep shared content authentic, custom, and meme-worthy.</p>
+          </div>
+        </div>
+
+        <div class="rule-row" id="rule-2">
+          <div class="rule-number">02</div>
+          <div class="rule-details">
+            <h4>Active Participation</h4>
+            <p>Lurking is fine, but try to pitch in sometimes! Check in on polls, react to plans, and send updates. If you are going offline for a digital detox, drop a quick heads-up.</p>
+          </div>
+        </div>
+
+        <div class="rule-row" id="rule-3">
+          <div class="rule-number">03</div>
+          <div class="rule-details">
+            <h4>Meetup RSVP Integrity</h4>
+            <p>We host meetups to build real-world bonds. Participate in planning polls. If you RSVP 'Yes' to an event, make every effort to show up. Avoid late cancellations unless it's a genuine emergency.</p>
+          </div>
+        </div>
+
+        <div class="rule-row" id="rule-4">
+          <div class="rule-number">04</div>
+          <div class="rule-details">
+            <h4>Strict Privacy Control</h4>
+            <p>What happens in Masti Mongsters stays in Masti Mongsters. Never screenshot group conversations, profile links, or media files to share with external parties without explicit consent.</p>
+          </div>
+        </div>
+
+        <div class="rule-row" id="rule-5">
+          <div class="rule-number">05</div>
+          <div class="rule-details">
+            <h4>Moderator Mandate</h4>
+            <p>Group Admins reserve the right to mute or remove members who repeatedly spam, provoke arguments, or break guidelines. Respect their decisions; they keep the peace.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer injected by main.js -->
+  <footer></footer>
+
+  <!-- Scripts -->
+  <script src="js/physics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize common header/footer components for this page
+    createSharedComponents('rules');
+
+    // Register pillars and rows in the Anti Gravity engine
+    const items = [
+      document.getElementById('pillar-respect'),
+      document.getElementById('pillar-masti'),
+      document.getElementById('rule-1'),
+      document.getElementById('rule-2'),
+      document.getElementById('rule-3'),
+      document.getElementById('rule-4'),
+      document.getElementById('rule-5')
+    ];
+
+    items.forEach((item, idx) => {
+      if (item) {
+        window.AntiGravity.register(item, {
+          mode: 'local',
+          driftRadius: idx < 2 ? 25 : 12, // pillars float slightly more than details rows
+          speed: 0.1 + (idx * 0.04),
+          repulsionStrength: 0.3
+        });
+      }
+    });
+  </script>
+</body>
+</html>

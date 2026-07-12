@@ -1,0 +1,24 @@
+# Large binaries / Installers
+node-v20.13.1.pkg
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build outputs
+dist/
+client/dist/
+
+# Local Environment Variables
+.env
+client/.env
+server/.env
+
+# Log files
+*.log
+server/*.log
+server_run.log
+
+# Operating System files
+.DS_Store

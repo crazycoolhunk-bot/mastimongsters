@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to the Masti Mongsters Hub! The ultimate portal for our 75+ group members. Drifting physics, interactive directories, and weightless community memories.">
+  <title>Masti Mongsters - The Pack Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Common Navigation injected by main.js -->
+  <header></header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-wrapper">
+      <div class="hero-content">
+        <div class="hero-badge">Pack Status: Online</div>
+        <h1 class="hero-title">
+          Where <span class="text-glow-pink">Masti</span> Meets <span class="text-glow-green">Mongsters</span>
+        </h1>
+        <p class="hero-description">
+          Welcome to the weightless digital zone of the Masti Mongsters community. Born on WhatsApp, built on gravity-defying connections, and home to 75+ chaotic elements. Grab a card, test the physics, and keep the pack alive.
+        </p>
+        <div class="hero-buttons">
+          <a href="members.html" class="btn btn-primary">Meet the Pack</a>
+          <a href="gallery.html" class="btn btn-secondary">Explore Gallery</a>
+        </div>
+      </div>
+
+      <!-- High-Impact Interactive Logo Widget -->
+      <div class="hero-graphic">
+        <div class="logo-widget-container" id="logo-widget-container">
+          <div class="logo-widget" id="logo-widget">
+            <div class="widget-bg-glow"></div>
+            <img src="assets/logo.png" alt="Masti Mongsters Logo" class="mongster-logo-asset">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Metrics Panel -->
+    <section class="home-metrics">
+      <div class="metrics-container">
+        
+        <div class="metric-card glass-card m-green" style="cursor: pointer;" onclick="window.location.href='members.html'">
+          <div class="metric-number" id="count-members" data-target="76">0</div>
+          <div class="metric-label">Mongsters</div>
+        </div>
+
+        <div class="metric-card glass-card m-pink">
+          <div class="metric-number" id="count-meetups" data-target="14">0</div>
+          <div class="metric-label">Meetups Hosted</div>
+        </div>
+
+        <div class="metric-card glass-card m-blue">
+          <div class="metric-number" id="count-fun" data-target="100">0</div>
+          <div class="metric-label">Masti Percentage</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Common Footer injected by main.js -->
+  <footer></footer>
+
+  <!-- Scripts -->
+  <script src="js/physics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize common header/footer components for this page
+    createSharedComponents('home');
+
+    // Register Hero Graphic Logo to float inside its container
+    const logoWidget = document.getElementById('logo-widget');
+    if (logoWidget) {
+      window.AntiGravity.register(logoWidget, {
+        mode: 'local',
+        driftRadius: 40,
+        speed: 0.25,
+        repulsionStrength: 0.55
+      });
+      
+      // Let logo hover tilt slightly based on mouse interaction
+      const container = document.getElementById('logo-widget-container');
+      const img = logoWidget.querySelector('.mongster-logo-asset');
+      
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width/2;
+        const y = e.clientY - rect.top - rect.height/2;
+        
+        // Tilt coefficient
+        const tiltX = -y / 12;
+        const tiltY = x / 12;
+        
+        img.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
+      });
+      
+      container.addEventListener('mouseleave', () => {
+        img.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+      });
+    }
+
+    // Dynamic Live Counter Animation
+    const animateCounters = () => {
+      const counters = document.querySelectorAll('.metric-number');
+      const speed = 60; // Duration divisor
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const suffix = counter.id === 'count-fun' ? '%' : (counter.id === 'count-members' ? '+' : '');
+        let count = 0;
+        
+        const updateCount = () => {
+          const increment = Math.ceil(target / speed);
+          if (count < target) {
+            count += increment;
+            if (count > target) count = target;
+            counter.innerText = count + suffix;
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target + suffix;
+          }
+        };
+        
+        updateCount();
+      });
+    };
+
+    // Trigger counters when scrolled into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(document.querySelector('.home-metrics'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "mastimongsters-api",
+  "version": "1.0.0",
+  "description": "REST API backend for Masti Mongsters Portal v2.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the official Masti Mongsters Members Directory. Meet all 75+ community members, filter by roles, and interact with floating profile cards.">
+  <title>Members Directory - Masti Mongsters</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation injected by main.js -->
+  <header></header>
+
+  <main>
+    <h1 class="page-title">The <span class="text-glow-green">Pack</span> Directory</h1>
+    <p class="page-subtitle">Search, filter, and interact with the 75+ legends that make up the Masti Mongsters community. Grab and toss cards around!</p>
+
+    <!-- Controls (Search & Filters) -->
+    <section class="directory-controls">
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <input type="text" class="search-input" placeholder="Search by name or quote..." aria-label="Search members">
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="admin">Admins</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="classic">Classics</button>
+        <button class="filter-btn" data-filter="lurker">Lurkers</button>
+      </div>
+
+      <!-- Real-time Stats counter -->
+      <div class="directory-stats">Showing 92 of 92 members</div>
+    </section>
+
+    <!-- Grid Container for Profile Cards -->
+    <section class="members-physics-container">
+      <div class="members-grid-container">
+        <!-- Injected dynamically by js/members.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer injected by main.js -->
+  <footer></footer>
+
+  <!-- Scripts -->
+  <script src="js/physics.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/members.js"></script>
+  <script>
+    // Initialize common header/footer components for this page
+    createSharedComponents('members');
+  </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request an invite link to join the private Masti Mongsters WhatsApp community. Fill out our membership onboarding form.">
+  <title>Join Us - Masti Mongsters</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation injected by main.js -->
+  <header></header>
+
+  <main>
+    <h1 class="page-title">Join the <span class="text-glow-pink">Pack</span></h1>
+    <p class="page-subtitle">The Masti Mongsters group is a private community. Submit an invite request, and our admin team will review it shortly.</p>
+
+    <!-- Grid: Form + Info Panel -->
+    <section class="contact-grid">
+      
+      <!-- Interactive Form Container -->
+      <div class="glass-card" id="contact-card">
+        
+        <!-- Form Fields -->
+        <form id="join-form" novalidate>
+          <div class="form-group">
+            <label for="user-name">Full Name</label>
+            <input type="text" id="user-name" class="form-control" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="user-phone">WhatsApp Number</label>
+            <input type="tel" id="user-phone" class="form-control" placeholder="e.g. +91 98765 43210" pattern="^\+?[0-9\s\-]{10,15}$" required>
+          </div>
+
+          <div class="form-group">
+            <label for="user-handle">Instagram Handle (Optional)</label>
+            <input type="text" id="user-handle" class="form-control" placeholder="e.g. @yourhandle">
+          </div>
+
+          <div class="form-group">
+            <label for="user-referer">Who Invited You? (Specify group member name)</label>
+            <input type="text" id="user-referer" class="form-control" placeholder="Enter member name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="user-reason">Why do you want to join Masti Mongsters?</label>
+            <textarea id="user-reason" class="form-control" placeholder="Tell us why you want to be a part of the pack!" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-pink" style="margin-top: 1rem; width: 100%;">Submit Invite Request</button>
+        </form>
+
+        <!-- Success Message Widget (Hidden Initially) -->
+        <div class="form-success-container" id="success-widget">
+          <div class="success-icon">✓</div>
+          <h3>Request Sent!</h3>
+          <p>
+            Your request has been successfully submitted to the Masti Mongsters admin panel. To protect the pack from spammers, our admins manually verify all referers. 
+          </p>
+          <p style="color: #666; font-size: 0.9rem;">
+            If approved, you will receive a WhatsApp invite link within 24-48 hours. Get ready for the Masti!
+          </p>
+          <a href="index.html" class="btn btn-primary">Go to Home</a>
+        </div>
+
+      </div>
+
+      <!-- Info Side Panel -->
+      <div class="contact-info-panel" id="info-panel">
+        
+        <div class="contact-highlight-card glass-card">
+          <h3 class="text-glow-green">Onboarding Info</h3>
+          <p>We are a close group of 75+ active friends. To keep our conversations clean and fun, we don't open the group to public links. All requests require a reference from an existing group member.</p>
+          
+          <div style="border-top: 1px solid var(--card-border); padding-top: 1.5rem;">
+            <p style="margin-bottom: 0.5rem; color: #fff; font-weight: 600;">Verification Checklist:</p>
+            <ul style="list-style: none; padding-left: 0; color: #aaa; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li>🟢 Active WhatsApp Account</li>
+              <li>🟢 Referer validation by Admins</li>
+              <li>🟢 Agreement with Group Rules</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer injected by main.js -->
+  <footer></footer>
+
+  <!-- Scripts -->
+  <script src="js/physics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize common header/footer components for this page
+    createSharedComponents('contact');
+
+    // Register Form Card and Info Panel in Anti Gravity engine
+    const formCard = document.getElementById('contact-card');
+    const infoPanel = document.getElementById('info-panel');
+
+    if (formCard) {
+      window.AntiGravity.register(formCard, {
+        mode: 'local',
+        driftRadius: 20,
+        speed: 0.15,
+        repulsionStrength: 0.25
+      });
+    }
+
+    if (infoPanel) {
+      window.AntiGravity.register(infoPanel, {
+        mode: 'local',
+        driftRadius: 25,
+        speed: 0.12,
+        repulsionStrength: 0.2
+      });
+    }
+
+    // Onboarding form submit and inline validations
+    const form = document.getElementById('join-form');
+    const successWidget = document.getElementById('success-widget');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Basic validation check
+      let isValid = true;
+      const inputs = form.querySelectorAll('input[required], textarea[required]');
+      
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.style.borderColor = 'var(--neon-pink)';
+          input.placeholder = "This field is required!";
+        } else {
+          input.style.borderColor = '';
+        }
+      });
+
+      // Special pattern check for phone
+      const phoneInput = document.getElementById('user-phone');
+      if (phoneInput && phoneInput.value.trim()) {
+        const phoneRegex = /^\+?[0-9\s\-]{10,15}$/;
+        if (!phoneRegex.test(phoneInput.value.trim())) {
+          isValid = false;
+          phoneInput.style.borderColor = 'var(--neon-pink)';
+          alert("Please enter a valid phone number format (+xx xxxxxxxxxx or xxxxxxxxxx).");
+        }
+      }
+
+      if (isValid) {
+        // Trigger exit fade for the form fields
+        form.style.transition = 'opacity 0.4s ease';
+        form.style.opacity = '0';
+        
+        setTimeout(() => {
+          form.style.display = 'none';
+          
+          // Show and animate success widget entry
+          successWidget.style.display = 'block';
+          successWidget.style.opacity = '0';
+          successWidget.style.transform = 'translateY(15px)';
+          
+          // Re-calculate form container boundaries since its size changed
+          if (formCard) {
+            window.AntiGravity.recalculateBoundaries(
+              window.AntiGravity.elements.find(x => x.el === formCard)
+            );
+          }
+
+          setTimeout(() => {
+            successWidget.style.transition = 'all 0.5s ease';
+            successWidget.style.opacity = '1';
+            successWidget.style.transform = 'translateY(0)';
+          }, 50);
+
+        }, 400);
+      }
+    });
+  </script>
+</body>
+</html>

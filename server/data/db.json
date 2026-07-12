@@ -1,0 +1,895 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "Ajay Kumar Reddy",
+      "role": "classic",
+      "status": "legendary",
+      "tagline": "Always typing... usually spelling something wrong.",
+      "emoji": "🐯",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": "/avatars/ajay.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Anil kumar Kalva",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Send memes, not paragraph messages.",
+      "emoji": "🦁",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 3,
+      "name": "Anil Reddy",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Here for the weekend road trips and pizza.",
+      "emoji": "🦊",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 4,
+      "name": "Anudeep",
+      "role": "active",
+      "status": "online",
+      "tagline": "Only replies in voice notes. Listen at 2x speed.",
+      "emoji": "🐱",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 5,
+      "name": "Arun Kotturu",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Reacted with 👍 to over 5,000 messages.",
+      "emoji": "🐼",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 6,
+      "name": "BBSR",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Spams custom stickers at 2:00 AM.",
+      "emoji": "🐨",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 7,
+      "name": "Bipin ChandraPal Reddy",
+      "role": "active",
+      "status": "online",
+      "tagline": "Who is making Sunday lunch plans? Count me in.",
+      "emoji": "🐻",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 8,
+      "name": "Chakri",
+      "role": "classic",
+      "status": "offline",
+      "tagline": "Reads everything but too lazy to send a reply.",
+      "emoji": "🐹",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 9,
+      "name": "Chintu",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Midnight snack advisor and professional sleeper.",
+      "emoji": "🐰",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 10,
+      "name": "Cnu Nano",
+      "role": "active",
+      "status": "legendary",
+      "tagline": "Will show up exactly 2 hours late to meetups.",
+      "emoji": "🐸",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 11,
+      "name": "Dabba Pavan",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Ask me about my sticker collection.",
+      "emoji": "🐙",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 12,
+      "name": "Daddy",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Legend has it they once left the group chat and returned.",
+      "emoji": "🐒",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 13,
+      "name": "Dr. Karthik Reddy",
+      "role": "active",
+      "status": "online",
+      "tagline": "Silent reader. Undercover agent.",
+      "emoji": "🦄",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 14,
+      "name": "Dr. KiMO",
+      "role": "active",
+      "status": "offline",
+      "tagline": "The official DJ of the roadtrip playlist.",
+      "emoji": "🧙‍♂️",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 15,
+      "name": "Durga",
+      "role": "classic",
+      "status": "offline",
+      "tagline": "Keyboard warrior but silent in person.",
+      "emoji": "🕶️",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 16,
+      "name": "Dwarak Nath",
+      "role": "lurker",
+      "status": "online",
+      "tagline": "Group chat is my full time job.",
+      "emoji": "🚀",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 17,
+      "name": "Easwar",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Usually on silent mode. Call if emergency.",
+      "emoji": "🎸",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 18,
+      "name": "Jai",
+      "role": "admin",
+      "status": "legendary",
+      "tagline": "Will suggest a meetup and then cancel last minute.",
+      "emoji": "🍕",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": "/avatars/jai.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Joy Raghu",
+      "role": "active",
+      "status": "legendary",
+      "tagline": "Meme archiver since 2021.",
+      "emoji": "🍔",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 20,
+      "name": "KCR",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Always typing... usually spelling something wrong.",
+      "emoji": "🥤",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 21,
+      "name": "Keerthi",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Send memes, not paragraph messages.",
+      "emoji": "👽",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 22,
+      "name": "Kittu",
+      "role": "classic",
+      "status": "online",
+      "tagline": "Here for the weekend road trips and pizza.",
+      "emoji": "👾",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 23,
+      "name": "KK",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Only replies in voice notes. Listen at 2x speed.",
+      "emoji": "🤠",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 24,
+      "name": "KN Reddy",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Reacted with 👍 to over 5,000 messages.",
+      "emoji": "🐯",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 25,
+      "name": "Koushik",
+      "role": "active",
+      "status": "online",
+      "tagline": "Spams custom stickers at 2:00 AM.",
+      "emoji": "🦁",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 26,
+      "name": "Kumaraswamy",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Who is making Sunday lunch plans? Count me in.",
+      "emoji": "🦊",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 27,
+      "name": "Mahesh Kumar",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Reads everything but too lazy to send a reply.",
+      "emoji": "🐱",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 28,
+      "name": "Mahi",
+      "role": "active",
+      "status": "legendary",
+      "tagline": "Midnight snack advisor and professional sleeper.",
+      "emoji": "🐼",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 29,
+      "name": "Munna",
+      "role": "classic",
+      "status": "offline",
+      "tagline": "Will show up exactly 2 hours late to meetups.",
+      "emoji": "🐨",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 30,
+      "name": "Naga Srinivas",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Ask me about my sticker collection.",
+      "emoji": "🐻",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 31,
+      "name": "Nikhil",
+      "role": "lurker",
+      "status": "online",
+      "tagline": "Legend has it they once left the group chat and returned.",
+      "emoji": "🐹",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 32,
+      "name": "Nikhil Reddy",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Silent reader. Undercover agent.",
+      "emoji": "🐰",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 33,
+      "name": "Nishanth",
+      "role": "active",
+      "status": "offline",
+      "tagline": "The official DJ of the roadtrip playlist.",
+      "emoji": "🐸",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 34,
+      "name": "OmPrakash Artham",
+      "role": "active",
+      "status": "online",
+      "tagline": "Keyboard warrior but silent in person.",
+      "emoji": "🐙",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 35,
+      "name": "Pavan Bangalore",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Group chat is my full time job.",
+      "emoji": "🐒",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 36,
+      "name": "Pavan BJP",
+      "role": "classic",
+      "status": "offline",
+      "tagline": "Usually on silent mode. Call if emergency.",
+      "emoji": "🦄",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 37,
+      "name": "Pavan Dabba",
+      "role": "active",
+      "status": "legendary",
+      "tagline": "Will suggest a meetup and then cancel last minute.",
+      "emoji": "🧙‍♂️",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 38,
+      "name": "Pavan K",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Meme archiver since 2021.",
+      "emoji": "🕶️",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 39,
+      "name": "Prashanth I'Patnam",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Always typing... usually spelling something wrong.",
+      "emoji": "🚀",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 40,
+      "name": "Prashanth Reddy",
+      "role": "active",
+      "status": "online",
+      "tagline": "Send memes, not paragraph messages.",
+      "emoji": "🎸",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 41,
+      "name": "Raj Reddy",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Here for the weekend road trips and pizza.",
+      "emoji": "🍕",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 42,
+      "name": "Rajesh Somberi",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Only replies in voice notes. Listen at 2x speed.",
+      "emoji": "🍔",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 43,
+      "name": "Rajnikar Reddy",
+      "role": "classic",
+      "status": "online",
+      "tagline": "Reacted with 👍 to over 5,000 messages.",
+      "emoji": "🥤",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 44,
+      "name": "Rajshekar Patnaik",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Spams custom stickers at 2:00 AM.",
+      "emoji": "👽",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 45,
+      "name": "Rama Rao",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Who is making Sunday lunch plans? Count me in.",
+      "emoji": "👾",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 46,
+      "name": "Ramcharan Advocate",
+      "role": "lurker",
+      "status": "legendary",
+      "tagline": "Reads everything but too lazy to send a reply.",
+      "emoji": "🤠",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 47,
+      "name": "Ranjith Reddy",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Midnight snack advisor and professional sleeper.",
+      "emoji": "🐯",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 48,
+      "name": "Ravikanth",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Will show up exactly 2 hours late to meetups.",
+      "emoji": "🦁",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 49,
+      "name": "RaviKrishna",
+      "role": "active",
+      "status": "online",
+      "tagline": "Ask me about my sticker collection.",
+      "emoji": "🦊",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 50,
+      "name": "RaviTej Sharma",
+      "role": "classic",
+      "status": "offline",
+      "tagline": "Legend has it they once left the group chat and returned.",
+      "emoji": "🐱",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 51,
+      "name": "Reddy Saab",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Silent reader. Undercover agent.",
+      "emoji": "🐼",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 52,
+      "name": "SaiKanth",
+      "role": "active",
+      "status": "online",
+      "tagline": "The official DJ of the roadtrip playlist.",
+      "emoji": "🐨",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 53,
+      "name": "Sairam",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Keyboard warrior but silent in person.",
+      "emoji": "🐻",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 54,
+      "name": "Sandy Bhai",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Group chat is my full time job.",
+      "emoji": "🐹",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 55,
+      "name": "Santosh Kumar",
+      "role": "active",
+      "status": "legendary",
+      "tagline": "Usually on silent mode. Call if emergency.",
+      "emoji": "🐰",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 56,
+      "name": "Sashi Wines",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Will suggest a meetup and then cancel last minute.",
+      "emoji": "🐸",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 57,
+      "name": "Shailender Reddy",
+      "role": "classic",
+      "status": "offline",
+      "tagline": "Meme archiver since 2021.",
+      "emoji": "🐙",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 58,
+      "name": "Sharath",
+      "role": "active",
+      "status": "online",
+      "tagline": "Always typing... usually spelling something wrong.",
+      "emoji": "🐒",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 59,
+      "name": "ShyamSunder",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Send memes, not paragraph messages.",
+      "emoji": "🦄",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 60,
+      "name": "Srikanth Maruthi",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Here for the weekend road trips and pizza.",
+      "emoji": "🧙‍♂️",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 61,
+      "name": "Srikumar Tyres",
+      "role": "lurker",
+      "status": "online",
+      "tagline": "Only replies in voice notes. Listen at 2x speed.",
+      "emoji": "🕶️",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 62,
+      "name": "SS Sandeep",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Reacted with 👍 to over 5,000 messages.",
+      "emoji": "🚀",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 63,
+      "name": "Subbu Darling",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Spams custom stickers at 2:00 AM.",
+      "emoji": "🎸",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 64,
+      "name": "Sudha Reddy",
+      "role": "classic",
+      "status": "legendary",
+      "tagline": "Who is making Sunday lunch plans? Count me in.",
+      "emoji": "🍕",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 65,
+      "name": "Uday Chicken",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Reads everything but too lazy to send a reply.",
+      "emoji": "🍔",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 66,
+      "name": "Ujjwal",
+      "role": "lurker",
+      "status": "offline",
+      "tagline": "Midnight snack advisor and professional sleeper.",
+      "emoji": "🥤",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 67,
+      "name": "Umesh Goud",
+      "role": "active",
+      "status": "online",
+      "tagline": "Will show up exactly 2 hours late to meetups.",
+      "emoji": "👽",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 68,
+      "name": "Varun Kulkarni",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Ask me about my sticker collection.",
+      "emoji": "👾",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 69,
+      "name": "Varun Reddy",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Legend has it they once left the group chat and returned.",
+      "emoji": "🤠",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 70,
+      "name": "Videep Reddy",
+      "role": "active",
+      "status": "online",
+      "tagline": "Silent reader. Undercover agent.",
+      "emoji": "🐯",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 71,
+      "name": "Vijay Steel Plant",
+      "role": "classic",
+      "status": "offline",
+      "tagline": "The official DJ of the roadtrip playlist.",
+      "emoji": "🦁",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    },
+    {
+      "id": 72,
+      "name": "Vikram Bilaji",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Keyboard warrior but silent in person.",
+      "emoji": "🦊",
+      "gradient": "linear-gradient(135deg, #ff007f 0%, #ffe600 100%)",
+      "avatar": null
+    },
+    {
+      "id": 73,
+      "name": "Vinay TCS",
+      "role": "active",
+      "status": "legendary",
+      "tagline": "Group chat is my full time job.",
+      "emoji": "🐱",
+      "gradient": "linear-gradient(135deg, #00e5ff 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 74,
+      "name": "VinayKanth",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Usually on silent mode. Call if emergency.",
+      "emoji": "🐼",
+      "gradient": "linear-gradient(135deg, #ffe600 0%, #39ff14 100%)",
+      "avatar": null
+    },
+    {
+      "id": 75,
+      "name": "Vinod RCI",
+      "role": "active",
+      "status": "offline",
+      "tagline": "Will suggest a meetup and then cancel last minute.",
+      "emoji": "🐨",
+      "gradient": "linear-gradient(135deg, #8a2be2 0%, #ff007f 100%)",
+      "avatar": null
+    },
+    {
+      "id": 76,
+      "name": "VishnuPrasad",
+      "role": "lurker",
+      "status": "online",
+      "tagline": "Meme archiver since 2021.",
+      "emoji": "🐻",
+      "gradient": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "avatar": null
+    }
+  ],
+  "announcements": [
+    {
+      "id": 1,
+      "title": "Summer Meetup RSVP Open",
+      "content": "Our annual Summer Mongsters Bash is scheduled for July 12th. Check the polling links and RSVP by Sunday!",
+      "isPinned": true,
+      "date": "2026-05-22"
+    },
+    {
+      "id": 2,
+      "title": "No Chain Message Rule Reminder",
+      "content": "Avoid forwarding external commercial links and good morning images to prevent notification fatigue. Banter stays in-house!",
+      "isPinned": false,
+      "date": "2026-05-18"
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "title": "Pondicherry road Trip",
+      "tag": "Meetup",
+      "date": "Oct 2012",
+      "imageUrl": "/gallery/pondy.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Austin, Tx Meet up",
+      "tag": "Admin",
+      "date": "March 2015",
+      "imageUrl": "/gallery/austin.jpg"
+    },
+    {
+      "id": 3,
+      "title": "The WhatsApp Admin Meet",
+      "tag": "Screenshot",
+      "date": "Apr 2025",
+      "bg": "linear-gradient(135deg, #39ff14 0%, #00e5ff 100%)",
+      "symbol": "bubble"
+    },
+    {
+      "id": 4,
+      "title": "Late Night Chai Gathering",
+      "tag": "Meetup",
+      "date": "Jun 2025",
+      "bg": "linear-gradient(135deg, #ffe600 0%, #ff007f 100%)",
+      "symbol": "chai"
+    }
+  ],
+  "requests": [
+    {
+      "id": 1,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-05-23T22:48:25.606Z"
+    },
+    {
+      "id": 2,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-05-23T22:49:34.861Z"
+    },
+    {
+      "id": 3,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-05-23T23:01:52.240Z"
+    },
+    {
+      "id": 4,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-05-24T02:51:57.080Z"
+    },
+    {
+      "id": 5,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-05-24T03:00:03.479Z"
+    },
+    {
+      "id": 6,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-05-24T03:28:22.143Z"
+    },
+    {
+      "id": 7,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-06-03T00:41:37.386Z"
+    },
+    {
+      "id": 8,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-06-03T01:03:24.298Z"
+    },
+    {
+      "id": 9,
+      "name": "Test Candidate",
+      "phone": "1234567890",
+      "referer": "Jai",
+      "reason": "Testing client submission request flow.",
+      "handle": "",
+      "date": "2026-07-12T15:53:27.016Z"
+    }
+  ]
+}

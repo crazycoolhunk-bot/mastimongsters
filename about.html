@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read the chronicled origin story of Masti Mongsters. Meet our awesome group administration team.">
+  <title>About Us - Masti Mongsters</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation injected by main.js -->
+  <header></header>
+
+  <main>
+    <h1 class="page-title">The <span class="text-glow-yellow">Origin</span> Story</h1>
+    <p class="page-subtitle">From a tiny 5-member chatterbox to a weightless community of 75+ legends. Here is how we got here.</p>
+
+    <!-- Narrative & Story section -->
+    <section class="about-grid">
+      <div class="story-content">
+        <div class="timeline-badge">Est. June 2012</div>
+        <p>
+          It started with a single notification. Back in the summer of 2012, a small group of friends decided that standard group chats were too quiet. They needed a dedicated sanctuary for high-energy conversations, unfiltered memes, and spontaneous weekend road trips. The <strong>Masti Mongsters</strong> WhatsApp group was born.
+        </p>
+        <p>
+          What began as a place to coordinate weekend dinners quickly evolved. Friends invited friends, memes turned into inside jokes, and casual hangouts turned into epic annual meetups. The rule was simple: bring positive energy, keep the conversation active, and respect the pack.
+        </p>
+        <p>
+          Today, the community is a bustling digital ecosystem of 75+ active members. Spanning across different cities, careers, and timezones, the Masti Mongsters remains anchored by its core spirit of friendship, celebration, and endless banter.
+        </p>
+      </div>
+
+      <div class="story-photo-container" style="background: #0f0f0f; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
+        <img src="assets/youtube_logo.png" alt="YouTube Logo" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+    </section>
+
+    <!-- Admins Section -->
+    <section>
+      <h2 class="admins-section-title">Meet the <span class="text-glow-green">Admins</span></h2>
+      <div class="admins-grid" style="display: flex; justify-content: center;">
+
+        <!-- Admin 2 -->
+        <div class="admin-card glass-card" id="admin-2" style="max-width: 320px; width: 100%;">
+          <div class="admin-avatar">
+            <img src="assets/avatars/jai.jpg" alt="Jai" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+          </div>
+          <h3 class="admin-name">Jai</h3>
+          <div class="admin-role">Tech Lead / Admin</div>
+          <p class="admin-quote">"Injecting high-performance weightless physics into our community directory."</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer injected by main.js -->
+  <footer></footer>
+
+  <!-- Scripts -->
+  <script src="js/physics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize common header/footer components for this page
+    createSharedComponents('about');
+
+    // Register all Admin Cards with Anti Gravity floating physics
+    const adminCards = document.querySelectorAll('.admin-card');
+    adminCards.forEach((card, idx) => {
+      window.AntiGravity.register(card, {
+        mode: 'local',
+        driftRadius: 30,
+        speed: 0.15 + (idx * 0.05), // slightly offset floating phases
+        repulsionStrength: 0.4
+      });
+    });
+  </script>
+</body>
+</html>
