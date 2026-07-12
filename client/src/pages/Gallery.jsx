@@ -13,8 +13,17 @@ export default function Gallery() {
   // Fetch photos from backend
   const fetchPhotos = () => {
     fetch('/api/gallery')
-      .then(res => res.json())
-      .then(data => setPhotos(data))
+      .then(res => {
+        if (!res.ok) throw new Error("Failed response status");
+        return res.json();
+      })
+      .then(data => {
+        if (Array.isArray(data)) {
+          setPhotos(data);
+        } else {
+          throw new Error("Invalid response format");
+        }
+      })
       .catch(err => {
         console.error("Failed fetching gallery:", err);
         // Fallback seed photos

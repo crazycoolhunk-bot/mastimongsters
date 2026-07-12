@@ -8,8 +8,8 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   REGION: us-central1
-  SERVICE_NAME: mastimongsters
-  REPOSITORY: mastimongsters
+  SERVICE_NAME: mastimongsters-api
+  REPOSITORY: cloud-run-source-deploy
 
 jobs:
   deploy:

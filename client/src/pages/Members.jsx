@@ -148,13 +148,20 @@ export default function Members() {
     setLoading(true);
     // Fetch from express API server
     fetch(`/api/members?search=${encodeURIComponent(search)}&role=${roleFilter}`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error("Failed response status");
+        return res.json();
+      })
       .then(data => {
-        // Apply local sort
-        const sorted = sortData(data, sortOrder);
-        setMembers(sorted);
-        setFilteredMembers(sorted);
-        setLoading(false);
+        if (Array.isArray(data)) {
+          // Apply local sort
+          const sorted = sortData(data, sortOrder);
+          setMembers(sorted);
+          setFilteredMembers(sorted);
+          setLoading(false);
+        } else {
+          throw new Error("Invalid response format");
+        }
       })
       .catch(err => {
         console.error("Failed fetching members:", err);

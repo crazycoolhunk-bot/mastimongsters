@@ -12,8 +12,11 @@ client/dist/
 
 # Local Environment Variables
 .env
-client/.env
-server/.env
+.env.*
+*.env
+*.env.*
+client/.env*
+server/.env*
 
 # Log files
 *.log
@@ -22,3 +25,7 @@ server_run.log
 
 # Operating System files
 .DS_Store
+
+# Firebase Cache
+.firebase/
+client/.firebase/

@@ -9,8 +9,17 @@ export default function Home({ navigate }) {
   // Fetch announcements from server
   useEffect(() => {
     fetch('/api/announcements')
-      .then(res => res.json())
-      .then(data => setAnnouncements(data))
+      .then(res => {
+        if (!res.ok) throw new Error("Failed response status");
+        return res.json();
+      })
+      .then(data => {
+        if (Array.isArray(data)) {
+          setAnnouncements(data);
+        } else {
+          throw new Error("Invalid response format");
+        }
+      })
       .catch(err => {
         console.error("Failed fetching announcements:", err);
         // Fallback seed data in case API server isn't run yet
