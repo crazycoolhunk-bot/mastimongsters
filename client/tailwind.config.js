@@ -8,15 +8,14 @@ export default {
     extend: {
       colors: {
         brand: {
-          white: '#FFFFFF',
-          bg: '#F8F9FA',
-          surface: '#E9ECEF',
-          dark: '#212529',
-          // Rich, settled variants of logo accents to pop elegantly on white
-          green: '#10B981',   // Settled Neon Green
-          pink: '#EC4899',    // Settled Pink
-          blue: '#06B6D4',    // Settled Electric Blue
-          yellow: '#F59E0B'   // Settled Vivid Yellow
+          white: 'var(--brand-white)',
+          bg: 'var(--brand-bg)',
+          surface: 'var(--brand-surface)',
+          dark: 'var(--brand-dark)',
+          green: 'var(--brand-green)',
+          pink: 'var(--brand-pink)',
+          blue: 'var(--brand-blue)',
+          yellow: 'var(--brand-yellow)'
         }
       },
       fontFamily: {

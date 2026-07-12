@@ -6,7 +6,7 @@ import Gallery from './pages/Gallery.jsx';
 import Rules from './pages/Rules.jsx';
 import Contact from './pages/Contact.jsx';
 import Admin from './pages/Admin.jsx';
-import { Menu, X, MessageSquare, ShieldAlert, LogOut } from 'lucide-react';
+import { Menu, X, MessageSquare, ShieldAlert, LogOut, Palette } from 'lucide-react';
 import { auth, db } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
@@ -18,6 +18,11 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('masti-theme') || 'emerald');
+
+  useEffect(() => {
+    localStorage.setItem('masti-theme', theme);
+  }, [theme]);
 
   // Monitor Firebase Auth State changes
   useEffect(() => {
@@ -69,7 +74,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-height-screen bg-brand-white flex flex-col selection:bg-brand-green selection:text-white">
+    <div className={`min-height-screen bg-brand-bg flex flex-col selection:bg-brand-green selection:text-white transition-colors duration-300 ${theme === 'cyber' ? 'dark-theme-cyber' : ''}`}>
       
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-gray-100">
@@ -102,6 +107,18 @@ export default function App() {
               </button>
             ))}
             
+            {/* Theme Style Toggle */}
+            <button
+              onClick={() => setTheme(theme === 'emerald' ? 'cyber' : 'emerald')}
+              className="flex items-center gap-2 bg-brand-bg border border-gray-100 hover:border-brand-green px-4 py-2 rounded-full transition-all text-gray-500 hover:text-brand-dark"
+              title="Toggle Theme Style"
+            >
+              <Palette size={14} className="text-brand-green animate-pulse" />
+              <span className="font-display font-semibold text-xs uppercase tracking-wider">
+                {theme === 'emerald' ? 'Emerald' : 'Cyber'}
+              </span>
+            </button>
+
             {/* Auth Action Widget */}
             {user ? (
               <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 pl-4 pr-1.5 py-1 rounded-full">
@@ -169,6 +186,20 @@ export default function App() {
             </button>
           ))}
           
+          {/* Mobile Theme Style Toggle */}
+          <button
+            onClick={() => setTheme(theme === 'emerald' ? 'cyber' : 'emerald')}
+            className="flex items-center justify-between bg-brand-bg border border-gray-100 px-5 py-4 rounded-2xl w-full text-left"
+          >
+            <span className="font-display font-bold text-lg text-brand-dark">Style Theme</span>
+            <div className="flex items-center gap-2">
+              <Palette size={16} className="text-brand-green" />
+              <span className="font-display font-bold text-xs uppercase tracking-wider text-brand-green">
+                {theme === 'emerald' ? 'Emerald' : 'Cyber'}
+              </span>
+            </div>
+          </button>
+
           {user ? (
             <div className="mt-auto flex flex-col gap-4 border-t border-gray-100 pt-6">
               <div className="flex justify-between items-center bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4">

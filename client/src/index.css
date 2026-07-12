@@ -2,15 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 1. Emerald Forest (Light Theme - default) */
+:root {
+  --brand-white: #FFFFFF;
+  --brand-bg: #F8F9FA;
+  --brand-surface: #E9ECEF;
+  --brand-dark: #212529;
+  --brand-green: #10B981;
+  --brand-pink: #EC4899;
+  --brand-blue: #06B6D4;
+  --brand-yellow: #F59E0B;
+}
+
+/* 2. Cyber-Banter Midnight (Dark Theme) */
+.dark-theme-cyber {
+  --brand-white: #121824; /* Dark Slate Surface */
+  --brand-bg: #0B0F19;    /* Midnight Void Black */
+  --brand-surface: #1E293B; /* Medium Slate */
+  --brand-dark: #F8FAFC;    /* High-contrast text */
+  --brand-green: #00F2FE;   /* Neon Cyan */
+  --brand-pink: #FF007F;    /* Hot Magenta */
+  --brand-blue: #38BDF8;    /* Electric Sky Blue */
+  --brand-yellow: #FDE047;  /* Bright Neon Yellow */
+}
+
 /* Custom base adjustments */
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #ffffff;
-  color: #212529;
+  background-color: var(--brand-bg);
+  color: var(--brand-dark);
   font-family: 'Space Grotesk', sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Dynamic theme overrides */
+.dark-theme-cyber .bg-white {
+  background-color: var(--brand-white) !important;
+}
+
+.dark-theme-cyber .text-brand-dark {
+  color: var(--brand-dark) !important;
+}
+
+.dark-theme-cyber .bg-brand-bg {
+  background-color: var(--brand-bg) !important;
+}
+
+.dark-theme-cyber .border-gray-100 {
+  border-color: #1E293B !important;
+}
+
+.dark-theme-cyber .text-gray-500 {
+  color: #94A3B8 !important;
+}
+
+.dark-theme-cyber .text-gray-400 {
+  color: #64748B !important;
+}
+
+.dark-theme-cyber .bg-gray-50 {
+  background-color: #1E293B !important;
+}
+
+.dark-theme-cyber .shadow-soft {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
