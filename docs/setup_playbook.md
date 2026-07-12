@@ -106,6 +106,10 @@ gcloud projects add-iam-policy-binding "jaisheelmastiproject" \
 
 gcloud projects add-iam-policy-binding "jaisheelmastiproject" \
     --member="serviceAccount:github-actions-deployer@jaisheelmastiproject.iam.gserviceaccount.com" \
+    --role="roles/firebasehosting.admin"
+
+gcloud projects add-iam-policy-binding "jaisheelmastiproject" \
+    --member="serviceAccount:github-actions-deployer@jaisheelmastiproject.iam.gserviceaccount.com" \
     --role="roles/iam.serviceAccountUser"
 ```
 
